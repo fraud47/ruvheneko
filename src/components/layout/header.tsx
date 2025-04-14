@@ -8,7 +8,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
 import MobileHeader from './mobile-header'
 
 export const navs=[
@@ -49,25 +48,8 @@ const navTabs =[
 
 const Header = () => {
 
-    const [show, setShow] = useState(true);
-    const [lastScrollY, setLastScrollY] = useState(0);
-    useEffect(() => {
-        const handleScroll = () => {
-          const currentScrollY = window.scrollY;
-    
-          if (currentScrollY > lastScrollY) {
-            setShow(false); // scrolling down
-          } else {
-            setShow(true); // scrolling up
-          }
-    
-          setLastScrollY(currentScrollY);
-        };
-    
-        window.addEventListener('scroll', handleScroll);
-    
-        return () => window.removeEventListener('scroll', handleScroll);
-      }, [lastScrollY]);
+ 
+   
     
 
     const pathname = usePathname()
